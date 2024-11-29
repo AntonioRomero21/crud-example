@@ -68,4 +68,29 @@ describe("App Component", () => {
       expect(screen.queryByText(/Carlos - 28 años/i)).not.toBeInTheDocument();
     });
   });
+  test("calculates average age correctly", () => {
+    render(<App />);
+
+    // Agregar algunos usuarios
+    fireEvent.change(screen.getByPlaceholderText(/Nombre/i), {
+      target: { value: "Carlos" },
+    });
+    fireEvent.change(screen.getByPlaceholderText(/Edad/i), {
+      target: { value: "28" },
+    });
+    fireEvent.click(screen.getByText(/Agregar/i));
+
+    fireEvent.change(screen.getByPlaceholderText(/Nombre/i), {
+      target: { value: "Ana" },
+    });
+    fireEvent.change(screen.getByPlaceholderText(/Edad/i), {
+      target: { value: "35" },
+    });
+    fireEvent.click(screen.getByText(/Agregar/i));
+
+    // Verificar la edad promedio
+    const averageAgeElement = screen.getByText(/Edad Promedio:/i);
+    expect(averageAgeElement).toHaveTextContent("Edad Promedio: 31.5"); // (28 + 35) / 2 = 31.5
+  });
+  
 });

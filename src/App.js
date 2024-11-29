@@ -13,8 +13,6 @@ function App() {
   const [editIndex, setEditIndex] = useState(null);
 
   useEffect(() => {
-    // Aquí podrías cargar datos desde un archivo JSON o API
-    // Simularemos esto con initialData
     setUsers(initialData);
   }, []);
 
@@ -55,7 +53,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Ejemplo CRUD con React</h1>
+      <text>Ejemplo CRUD con React</text>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

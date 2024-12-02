@@ -4,6 +4,10 @@ import './App.css';
 const initialData = [
     { name: "Juan", age: 25 },
     { name: "María", age: 30 }
+  { name: "Juan", age: 25 },
+  { name: "María", age: 30 },
+  {name: "Alberto",age:20}
+>>>>>>> Stashed changes
 ];
 
 function App() {
